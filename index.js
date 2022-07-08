@@ -52,16 +52,9 @@ const createUsercode = () => {
 
 
 app.get("/",(req,res)=>{
-    res.sendFile("D:/Programming javascript/project nodejs/TodoList/client/index.html");
+    res.send("hello world");
 });
 
-app.get("/style.css",(req,res) => {
-    res.sendFile("D:/Programming javascript/project nodejs/TodoList/client/style.css");
-});
-
-app.get("/script.js",(req,res) => {
-    res.sendFile("D:/Programming javascript/project nodejs/TodoList/client/script.js");
-});
 
 app.post("/sign-up",(req,res)=>{
     var username = req.body.username.trim();
