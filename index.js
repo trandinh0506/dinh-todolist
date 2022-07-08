@@ -8,26 +8,23 @@ app.use(express.json());
 
 
 
-const connection = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "",
-    database: "todolist",
-    waitForConnections: true,
-    connectionLimit: 100,
-});
-let User;
-function updateDatabase(){
-    connection.query("SELECT * FROM user", function(err, result){
-        if(err) throw err;
-        User = result;
-    });
-};
-updateDatabase();
+// const connection = mysql.createConnection({
+//     host: "localhost",
+//     user: "root",
+//     password: "",
+//     database: "todolist",
+//     waitForConnections: true,
+//     connectionLimit: 100,
+// });
+// let User;
+// function updateDatabase(){
+//     connection.query("SELECT * FROM user", function(err, result){
+//         if(err) throw err;
+//         User = result;
+//     });
+// };
+// updateDatabase();
 
-setTimeout( () =>{
-    console.log(User);
-}, 15);
 var charater = []
 for (let i=65;i<91;i++){
     charater.push(String.fromCharCode(i));
@@ -55,7 +52,7 @@ app.get("/",(req,res)=>{
     res.send("hello world");
 });
 
-
+let User = [];
 app.post("/sign-up",(req,res)=>{
     var username = req.body.username.trim();
     var password = req.body.password.trim();
